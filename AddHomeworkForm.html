@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Προσθήκη Νέας Εργασίας</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 20px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            margin: 0;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="date"],
+        textarea,
+        input[type="file"] {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        button {
+            background-color: #393fe1;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Προσθήκη Νέας Εργασίας</h1>
+        </div>
+        <div class="main-content">
+            <!-- Display error messages dynamically if needed -->
+            <div class="error" id="error-message"></div>
+
+            <form method="POST" action="handling.php" enctype="multipart/form-data">
+                <!-- CSRF Token -->
+                <?php
+                session_start();
+                if (empty($_SESSION['csrf_token'])) {
+                    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+                }
+                ?>
+                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+
+                    <!-- Form Fields -->
+                    <label for="assignment-title">Τίτλος Εργασίας:</label>
+                    <textarea id="title" name="title" rows="4" cols="50" required></textarea>
+
+                    <label for="objectives">Στόχοι:</label>
+                    <textarea id="objectives" name="objectives" rows="4" cols="50" required></textarea>
+
+                    <label for="deliverables">Παραδοτέα:</label>
+                    <textarea id="deliverables" name="deliverables" rows="4" cols="50" required></textarea>
+
+                    <label for="due-date">Ημερομηνία Παράδοσης:</label>
+                    <input type="date" id="due-date" name="due_date" required>
+
+                    <label for="file">Αρχείο Εκφώνησης (PDF/Word):</label>
+                    <input type="file" id="file" name="task_file" accept=".pdf, .doc, .docx" required>
+
+                    <button type="submit" name="add_assignment">Προσθήκη Εργασίας</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

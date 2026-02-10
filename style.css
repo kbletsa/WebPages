@@ -1,0 +1,154 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #625af8;
+    color: white;
+    text-align: center;
+    padding: 0.7em;
+}
+
+.container {
+    display: flex;
+    /* Δημιουργία διάταξης με δύο στήλες */
+    flex-direction: row;
+    min-height: 100vh;
+    /* Κάλυψη ολόκληρου του ύψους της σελίδας */
+}
+
+.center-image {
+    text-align: center;
+    /* Κεντράρισμα της εικόνας οριζόντια */
+}
+
+.center-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.menu {
+    background-color: #011442;
+    width: 20%;
+    /* Πλάτος της πλαϊνής στήλης */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu a {
+    color: white;
+    padding: 1em;
+    text-decoration: none;
+    text-align: center;
+    border-bottom: 1px solid #555;
+}
+
+.menu a:hover {
+    background-color: #666;
+}
+
+.main-content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    /* Τα στοιχεία μέσα στοιχίζονται κάθετα */
+    padding: 2em;
+    background: white;
+    margin: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.content {
+    width: 80%;
+    /* Υπόλοιπο πλάτος για το περιεχόμενο */
+    padding: 2em;
+    background: white;
+    margin: 1em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.content h2 {
+    color: #333;
+}
+
+.content p,
+.content ul {
+    margin: 1em 0;
+}
+
+.content a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.content a:hover {
+    text-decoration: underline;
+}
+
+.top-link {
+    position: fixed;
+    /* Σταθερή τοποθέτηση */
+    bottom: 20px;
+    /* Απόσταση από το κάτω μέρος */
+    right: 20px;
+    /* Απόσταση από τη δεξιά πλευρά */
+    color: #0066cc;
+    /* Μπλε χρώμα για το κείμενο */
+    text-decoration: none;
+    /* Αφαίρεση υπογράμμισης */
+    font-size: 1em;
+    /* Μέγεθος γραμματοσειράς */
+}
+
+button {
+    background-color: #393fe1;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.top-link:hover {
+    text-decoration: underline;
+}
+
+.center-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    /* Απόσταση μεταξύ των κουμπιών */
+    margin-top: 40px;
+    /* Απόσταση από το πάνω μέρος της σελίδας */
+}
+
+.center-buttons a {
+    text-decoration: none;
+}
+
+.center-buttons1 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    /* Απόσταση μεταξύ των κουμπιών */
+    margin-top: 20px;
+    /* Απόσταση από το περιεχόμενο της ανακοίνωσης */
+}
+
+.center-buttons1 form,
+.center-buttons1 a {
+    margin: 0;
+    /* Αφαίρεση περιθωρίων */
+    padding: 0;
+    /* Αφαίρεση εξτρά padding */
+}
